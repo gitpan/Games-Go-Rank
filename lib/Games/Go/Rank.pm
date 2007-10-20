@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base 'Class::Accessor::Complex';
@@ -69,3 +69,93 @@ sub num_cmp {
 
 
 1;
+
+
+__END__
+
+=head1 NAME
+
+Games::Go::Rank - represents a player's rank in the game of Go
+
+=head1 SYNOPSIS
+
+    use Games::Go::Rank;
+
+    my $black_rank = Games::Go::Rank->new(rank => '1k');
+    my $white_rank = Games::Go::Rank->new(rank => '2d');
+    if ($white_rank > $black_rank) { ... }
+
+=head1 DESCRIPTION
+
+This class represents a player's rank in the game of Go. Rank objects can be
+compared to see whether two ranks are equal or whether one rank is higher than
+the other. Rank objects stringify to the rank notation.
+
+=head1 METHODS
+
+Additionally, this class defines the following methods:
+
+=over 4
+
+=item rank
+
+Sets or gets the rank. Use the standard notation for ranks such as C<30k>,
+C<5k>, C<1d>, C<2p> and so on. You can also use other common formats such
+as C<6-dan> or C<2 dan>. Anything after the first C<k>, C<d> or C<p> is
+ignored. So C<6-dan*> is the same as C<6-dan>, which is the same as C<6d>.
+
+=item clear_rank
+
+Clears the rank.
+
+=item as_value
+
+Returns a number representing the rank. C<1k> is returned as C<0>, lower kyu
+ranks are returned as negative numbers (C<2K> is C<-1>, C<3k> is C<-2> etc.).
+Dan ranks are returned as positive numbers, with pro ranks coming immediately
+after dan ranks. For example, C<1d> == C<1>, C<7d> == C<7>, C<1p> == C<8>,
+C<2p> == C<9>. Only dan ranks up to 7d are recognized as amateur ranks -
+that is, C<8d> == C<1p>.
+
+=item from_value
+
+Sets the rank from a numerical value that is interpreted as described above.
+
+=back
+
+=head1 TAGS
+
+If you talk about this module in blogs, on del.icio.us or anywhere else,
+please use the C<gamesgorank> tag.
+
+=head1 BUGS AND LIMITATIONS
+
+No bugs have been reported.
+
+Please report any bugs or feature requests to
+C<bug-games-go-rank@rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org>.
+
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
+
+=head1 AVAILABILITY
+
+The latest version of this module is available from the Comprehensive Perl
+Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
+site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+
+=head1 AUTHOR
+
+Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2007 by Marcel GrE<uuml>nauer
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
