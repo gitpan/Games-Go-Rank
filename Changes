@@ -1,5 +1,8 @@
 Revision history for Perl extension Games::Go::Rank.
 
+0.03  Sa Okt 20 11:46:45 CEST 2007
+        - simplified accessor declaration
+
 0.02  Sa Okt 20 11:46:45 CEST 2007
         - added documentation
 

@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Accessor::Complex';
@@ -15,7 +15,7 @@ use overload
     '<=>' => 'num_cmp';
 
 
-Games::Go::Rank
+__PACKAGE__
     ->mk_new
     ->mk_accessors(qw(rank));
 
