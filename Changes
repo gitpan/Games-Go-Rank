@@ -1,11 +1,36 @@
-Revision history for Perl extension Games::Go::Rank.
-
-0.03  Sa Okt 20 11:46:45 CEST 2007
-        - simplified accessor declaration
-
-0.02  Sa Okt 20 11:46:45 CEST 2007
-        - added documentation
-
-0.01  Sa Okt 20 11:25:04 CEST 2007
-        - original version
-
+---
+global:
+  name: Games-Go-Rank
+releases:
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - Converted Changes file to YAML style
+      - '.shipit: added Twitter step'
+      - 'Makefile.PL: added auto_install() and process_templates()'
+      - 'lib/*: converted to template'
+      - updated MANIFEST
+      - added t/perlcriticrc
+      - updated MANIFEST
+      - 'Makefile.PL: now requires Class::Accessor::Complex 0.12'
+    date: 2007-11-24T21:55:40Z
+    tags:
+      - NEWFEATURE
+    version: 0.04
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - simplified accessor declaration
+    date: 2007-10-20T11:46:45+02:00
+    tags: []
+    version: 0.03
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - added documentation
+    date: 2007-10-20T11:46:45+02:00
+    tags: []
+    version: 0.02
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - original version
+    date: 2007-10-20T11:25:04+02:00
+    tags: []
+    version: 0.01

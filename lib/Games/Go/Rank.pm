@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 use base 'Class::Accessor::Complex';
@@ -73,6 +73,8 @@ sub num_cmp {
 
 __END__
 
+
+
 =head1 NAME
 
 Games::Go::Rank - represents a player's rank in the game of Go
@@ -91,22 +93,51 @@ This class represents a player's rank in the game of Go. Rank objects can be
 compared to see whether two ranks are equal or whether one rank is higher than
 the other. Rank objects stringify to the rank notation.
 
-=head1 METHODS
+Use the standard notation for ranks such as C<30k>, C<5k>, C<1d>, C<2p> and so
+on. You can also use other common formats such as C<6-dan> or C<2 dan>.
+Anything after the first C<k>, C<d> or C<p> is ignored. So C<6-dan*> is the
+same as C<6-dan>, which is the same as C<6d>.
 
-Additionally, this class defines the following methods:
+Games::Go::Rank inherits from L<Class::Accessor::Complex>.
+
+The superclass L<Class::Accessor::Complex> defines these methods and
+functions:
+
+    carp(), cluck(), croak(), flatten(), mk_abstract_accessors(),
+    mk_array_accessors(), mk_boolean_accessors(),
+    mk_class_array_accessors(), mk_class_hash_accessors(),
+    mk_class_scalar_accessors(), mk_concat_accessors(),
+    mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
+    mk_new(), mk_object_accessors(), mk_scalar_accessors(),
+    mk_set_accessors(), mk_singleton()
+
+The superclass L<Class::Accessor> defines these methods and functions:
+
+    _carp(), _croak(), _mk_accessors(), accessor_name_for(),
+    best_practice_accessor_name_for(), best_practice_mutator_name_for(),
+    follow_best_practice(), get(), make_accessor(), make_ro_accessor(),
+    make_wo_accessor(), mk_accessors(), mk_ro_accessors(),
+    mk_wo_accessors(), mutator_name_for(), set()
+
+The superclass L<Class::Accessor::Installer> defines these methods and
+functions:
+
+    install_accessor(), subname()
+
+=head1 METHODS
 
 =over 4
 
-=item rank
+=item new
 
-Sets or gets the rank. Use the standard notation for ranks such as C<30k>,
-C<5k>, C<1d>, C<2p> and so on. You can also use other common formats such
-as C<6-dan> or C<2 dan>. Anything after the first C<k>, C<d> or C<p> is
-ignored. So C<6-dan*> is the same as C<6-dan>, which is the same as C<6d>.
+    my $obj = Games::Go::Rank->new;
+    my $obj = Games::Go::Rank->new(%args);
 
-=item clear_rank
-
-Clears the rank.
+Creates and returns a new object. The constructor will accept as arguments a
+list of pairs, from component name to initial value. For each pair, the named
+component is initialized by calling the method of the same name with the given
+value. If called with a single hash reference, it is dereferenced and its
+key/value pairs are set as described before.
 
 =item as_value
 
@@ -128,12 +159,16 @@ Sets the rank from a numerical value that is interpreted as described above.
 If you talk about this module in blogs, on del.icio.us or anywhere else,
 please use the C<gamesgorank> tag.
 
+=head1 VERSION 
+                   
+This document describes version 0.04 of L<Games::Go::Rank>.
+
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests to
-C<bug-games-go-rank@rt.cpan.org>, or through the web interface at
+C<<bug-games-go-rank@rt.cpan.org>>, or through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -156,6 +191,7 @@ Copyright 2007 by Marcel GrE<uuml>nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
 
 =cut
 
