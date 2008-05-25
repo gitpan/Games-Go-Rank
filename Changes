@@ -4,6 +4,16 @@ global:
 releases:
   - author: 'Marcel Gruenauer <marcel@cpan.org>'
     changes:
+      - set the version to 0.05
+      - moved generated documentation of interited methods to after documentation of this class' methods so the manpage is more readable
+      - moooooooooooooose
+      - 'brought back warnings and strict to appease Perl::Critic, although Moose turns them on'
+      - fixed .shipit to use new svk.tagpattern
+    date: 2008-05-25T17:13:09Z
+    tags: []
+    version: 0.05
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
       - Converted Changes file to YAML style
       - '.shipit: added Twitter step'
       - 'Makefile.PL: added auto_install() and process_templates()'
